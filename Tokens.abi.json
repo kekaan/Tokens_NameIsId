@@ -1,0 +1,71 @@
+{
+	"ABI version": 2,
+	"version": "2.1",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "createToken",
+			"inputs": [
+				{"name":"name","type":"string"},
+				{"name":"brand","type":"string"},
+				{"name":"enginePower","type":"uint256"},
+				{"name":"topSpeed","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getSellingList",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"value0","type":"string[]"}
+			]
+		},
+		{
+			"name": "offerForSale",
+			"inputs": [
+				{"name":"tokenName","type":"string"},
+				{"name":"price","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "tokensArr",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"name","type":"string"},{"name":"brand","type":"string"},{"name":"enginePower","type":"uint256"},{"name":"topSpeed","type":"uint256"}],"name":"tokensArr","type":"tuple[]"}
+			]
+		},
+		{
+			"name": "tokenIdToOwner",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"tokenIdToOwner","type":"map(uint256,uint256)"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"components":[{"name":"name","type":"string"},{"name":"brand","type":"string"},{"name":"enginePower","type":"uint256"},{"name":"topSpeed","type":"uint256"}],"name":"tokensArr","type":"tuple[]"},
+		{"name":"tokenIdToOwner","type":"map(uint256,uint256)"},
+		{"name":"nameToTokenId","type":"optional(cell)"},
+		{"name":"sellingTokenIdToPrice","type":"map(uint256,uint256)"}
+	]
+}
