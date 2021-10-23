@@ -21,14 +21,20 @@ contract Tokens {
         tvm.accept();
     }
 
-    modifier checkOwnerAndAccept 
-    {
+    modifier checkOwnerAndAccept {
         require(msg.pubkey() == tvm.pubkey(), 102);
         tvm.accept();
         _;
     }
 
-    function createToken(string name, string brand, uint enginePower, uint topSpeed) public {
+    function createToken(
+        string name, 
+        string brand, 
+        uint enginePower, 
+        uint topSpeed
+    )
+        public 
+    {
         require(!nameToTokenId.exists(name), 103, "Token with this name already exists.");
         tvm.accept();
         tokensArr.push(CarToken(name, brand, enginePower, topSpeed));
@@ -37,7 +43,11 @@ contract Tokens {
         nameToTokenId[name] = id;
     }
 
-    function getSellingList() public view checkOwnerAndAccept returns(string[])
+    function getSellingList() 
+        public 
+        view 
+        checkOwnerAndAccept 
+        returns(string[])
     {
         string[] list;
         optional(uint, uint) currentOpt = sellingTokenIdToPrice.min();
